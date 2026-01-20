@@ -50,24 +50,33 @@ export const jobsAPI = {
 };
 
 export const resumeAPI = {
-    upload: (file) => {
+    upload: (file, sessionId) => {
         const formData = new FormData();
         formData.append('file', file);
 
         return api.post('/resume', formData, {
-            withCredentials: true
+            withCredentials: true,
+            headers: {
+                'x-session-id': sessionId
+            }
         });
     },
 
-    getStatus: () => {
+    getStatus: (sessionId) => {
         return api.get('/resume', {
-            withCredentials: true
+            withCredentials: true,
+            headers: {
+                'x-session-id': sessionId
+            }
         });
     },
 
-    delete: () => {
+    delete: (sessionId) => {
         return api.delete('/resume', {
-            withCredentials: true
+            withCredentials: true,
+            headers: {
+                'x-session-id': sessionId
+            }
         });
     }
 };
