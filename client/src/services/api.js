@@ -55,20 +55,23 @@ export const resumeAPI = {
         formData.append('file', file);
 
         return api.post('/resume', formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
+            withCredentials: true
         });
     },
 
     getStatus: () => {
-        return api.get('/resume');
+        return api.get('/resume', {
+            withCredentials: true
+        });
     },
 
     delete: () => {
-        return api.delete('/resume');
+        return api.delete('/resume', {
+            withCredentials: true
+        });
     }
 };
+
 
 export const applicationsAPI = {
     getAll: (filters = {}) => {
