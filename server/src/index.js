@@ -19,7 +19,6 @@ const fastify = Fastify({
 // Register plugins
 await fastify.register(cors, {
   origin: (origin, cb) => {
-    // Allow server-to-server calls & preflight
     if (!origin) {
       cb(null, true);
       return;
@@ -33,13 +32,14 @@ await fastify.register(cors, {
     if (allowedOrigins.includes(origin)) {
       cb(null, true);
     } else {
-      // IMPORTANT: do NOT throw error for preflight
       cb(null, false);
     }
   },
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-session-id']
 });
+
 
 
 
