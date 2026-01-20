@@ -18,27 +18,16 @@ const fastify = Fastify({
 
 // Register plugins
 await fastify.register(cors, {
-  origin: (origin, cb) => {
-    if (!origin) {
-      cb(null, true);
-      return;
-    }
-
-    const allowedOrigins =
-      process.env.NODE_ENV === 'production'
-        ? [process.env.FRONTEND_URL]
-        : ['http://localhost:5173', 'http://localhost:3000'];
-
-    if (allowedOrigins.includes(origin)) {
-      cb(null, true);
-    } else {
-      cb(null, false);
-    }
-  },
+  origin: true,
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'x-session-id']
+  allowedHeaders: [
+    'Content-Type',
+    'Authorization',
+    'x-session-id'
+  ]
 });
+
 
 
 
