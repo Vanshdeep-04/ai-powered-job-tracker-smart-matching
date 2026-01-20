@@ -5,10 +5,9 @@ const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api'
 // Create axios instance
 const api = axios.create({
     baseURL: API_BASE_URL,
-    headers: {
-        'Content-Type': 'application/json'
-    }
+    withCredentials: true
 });
+
 
 // Get or create session ID
 const getSessionId = () => {
@@ -50,36 +49,22 @@ export const jobsAPI = {
 };
 
 export const resumeAPI = {
-    upload: (file, sessionId) => {
+    upload: (file) => {
         const formData = new FormData();
         formData.append('file', file);
 
-        return api.post('/resume', formData, {
-            withCredentials: true,
-            headers: {
-                'x-session-id': sessionId
-            }
-        });
+        return api.post('/resume', formData);
     },
 
-    getStatus: (sessionId) => {
-        return api.get('/resume', {
-            withCredentials: true,
-            headers: {
-                'x-session-id': sessionId
-            }
-        });
+    getStatus: () => {
+        return api.get('/resume');
     },
 
-    delete: (sessionId) => {
-        return api.delete('/resume', {
-            withCredentials: true,
-            headers: {
-                'x-session-id': sessionId
-            }
-        });
+    delete: () => {
+        return api.delete('/resume');
     }
 };
+
 
 
 export const applicationsAPI = {
