@@ -1,0 +1,222 @@
+.job-filters {
+    width: 280px;
+    min-width: 280px;
+    height: calc(100vh - 64px);
+    position: sticky;
+    top: 64px;
+    padding: var(--space-6);
+    background: var(--dark-card);
+    border-right: 1px solid var(--dark-border);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.filters-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filters-header h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.clear-filters-btn {
+    background: none;
+    border: none;
+    font-size: 0.8rem;
+    color: var(--primary-400);
+    cursor: pointer;
+    transition: color var(--transition-fast);
+}
+
+.clear-filters-btn:hover {
+    color: var(--primary-300);
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.filter-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--dark-text);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.skill-filter-btn {
+    padding: var(--space-1) var(--space-3);
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: var(--dark-bg);
+    border: 1px solid var(--dark-border);
+    border-radius: var(--radius-full);
+    color: var(--dark-text-muted);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.skill-filter-btn:hover {
+    border-color: var(--primary-500);
+    color: var(--dark-text);
+}
+
+.skill-filter-btn.active {
+    background: var(--primary-600);
+    border-color: var(--primary-600);
+    color: white;
+}
+
+.show-more-btn {
+    background: none;
+    border: none;
+    font-size: 0.75rem;
+    color: var(--primary-400);
+    cursor: pointer;
+    padding: var(--space-1) 0;
+    text-align: left;
+}
+
+.show-more-btn:hover {
+    color: var(--primary-300);
+    text-decoration: underline;
+}
+
+/* Radio Group */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    cursor: pointer;
+    padding: var(--space-2);
+    border-radius: var(--radius-md);
+    transition: background var(--transition-fast);
+}
+
+.radio-option:hover {
+    background: var(--dark-bg);
+}
+
+.radio-option input {
+    accent-color: var(--primary-500);
+    width: 16px;
+    height: 16px;
+}
+
+.radio-label {
+    font-size: 0.875rem;
+    color: var(--dark-text-muted);
+}
+
+.radio-option input:checked+.radio-label {
+    color: var(--dark-text);
+}
+
+/* Button Group */
+.button-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2);
+}
+
+.mode-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-1);
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: var(--dark-bg);
+    border: 1px solid var(--dark-border);
+    border-radius: var(--radius-md);
+    color: var(--dark-text-muted);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.mode-btn:hover {
+    border-color: var(--gray-500);
+    color: var(--dark-text);
+}
+
+.mode-btn.active {
+    background: var(--primary-600);
+    border-color: var(--primary-600);
+    color: white;
+}
+
+/* Match Score Filters */
+.match-score-filters {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.match-filter-btn {
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.8rem;
+    font-weight: 500;
+    background: var(--dark-bg);
+    border: 1px solid var(--dark-border);
+    border-radius: var(--radius-md);
+    color: var(--dark-text-muted);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-align: left;
+}
+
+.match-filter-btn:hover {
+    border-color: var(--gray-500);
+}
+
+.match-filter-btn.active {
+    border-color: var(--primary-500);
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary-400);
+}
+
+.match-filter-btn.success.active {
+    border-color: var(--success);
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.match-filter-btn.warning.active {
+    border-color: var(--warning);
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+}
+
+@media (max-width: 1024px) {
+    .job-filters {
+        position: fixed;
+        left: -280px;
+        z-index: 50;
+        transition: transform var(--transition-base);
+    }
+
+    .job-filters.open {
+        transform: translateX(280px);
+    }
+}

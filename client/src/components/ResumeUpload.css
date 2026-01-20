@@ -1,0 +1,191 @@
+.resume-modal {
+    max-width: 520px;
+}
+
+.upload-description {
+    font-size: 0.9rem;
+    color: var(--dark-text-muted);
+    margin-bottom: var(--space-6);
+    line-height: 1.6;
+}
+
+/* Drop Zone */
+.drop-zone {
+    border: 2px dashed var(--dark-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    background: var(--dark-bg);
+}
+
+.drop-zone:hover {
+    border-color: var(--primary-500);
+    background: rgba(99, 102, 241, 0.05);
+}
+
+.drop-zone.active {
+    border-color: var(--primary-500);
+    background: rgba(99, 102, 241, 0.1);
+    transform: scale(1.02);
+}
+
+.drop-zone.uploading {
+    cursor: wait;
+    pointer-events: none;
+}
+
+.drop-zone-icon {
+    color: var(--dark-text-muted);
+    opacity: 0.5;
+}
+
+.drop-zone.active .drop-zone-icon {
+    color: var(--primary-400);
+    opacity: 1;
+}
+
+.drop-zone-text {
+    font-size: 0.9rem;
+    color: var(--dark-text-muted);
+}
+
+.drop-zone-text .highlight {
+    color: var(--primary-400);
+    font-weight: 500;
+}
+
+.drop-zone-hint {
+    font-size: 0.75rem;
+    color: var(--gray-500);
+}
+
+/* Upload Loading */
+.upload-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.upload-loading p {
+    font-size: 0.9rem;
+    color: var(--dark-text-muted);
+}
+
+/* Current Resume */
+.current-resume {
+    background: var(--dark-bg);
+    border: 1px solid var(--dark-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+}
+
+.resume-info {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+}
+
+.resume-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: var(--radius-lg);
+    color: var(--primary-400);
+}
+
+.resume-details {
+    flex: 1;
+}
+
+.resume-filename {
+    font-weight: 500;
+    color: var(--dark-text);
+    margin-bottom: 2px;
+}
+
+.resume-meta {
+    font-size: 0.8rem;
+    color: var(--dark-text-muted);
+}
+
+.resume-status {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-1) var(--space-3);
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: var(--radius-full);
+}
+
+.resume-actions {
+    display: flex;
+    gap: var(--space-3);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--dark-border);
+}
+
+.resume-actions .btn {
+    flex: 1;
+}
+
+/* Upload Error */
+.upload-error {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: var(--radius-md);
+    color: var(--error);
+    font-size: 0.875rem;
+    margin-top: var(--space-4);
+}
+
+/* Upload Benefits */
+.upload-benefits {
+    margin-top: var(--space-6);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--dark-border);
+}
+
+.upload-benefits h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+    color: var(--dark-text);
+}
+
+.upload-benefits ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.upload-benefits li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: 0.85rem;
+    color: var(--dark-text-muted);
+}
+
+.upload-benefits svg {
+    color: var(--success);
+    flex-shrink: 0;
+}

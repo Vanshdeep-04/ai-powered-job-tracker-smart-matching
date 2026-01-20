@@ -1,0 +1,278 @@
+.job-card {
+    background: var(--dark-card);
+    border: 1px solid var(--dark-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    transition: all var(--transition-base);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.job-card:hover {
+    border-color: var(--gray-600);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.job-card.applied {
+    border-color: var(--success);
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.job-card.compact {
+    padding: var(--space-4);
+    gap: var(--space-3);
+}
+
+.job-card.compact .job-title {
+    font-size: 1rem;
+}
+
+/* Header */
+.job-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-4);
+}
+
+.job-card-company {
+    display: flex;
+    gap: var(--space-3);
+}
+
+.company-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+    background: var(--dark-bg);
+}
+
+.company-logo-placeholder {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, var(--primary-600), var(--accent-purple));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: white;
+}
+
+.compact .company-logo,
+.compact .company-logo-placeholder {
+    width: 40px;
+    height: 40px;
+}
+
+.company-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.job-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--dark-text);
+    line-height: 1.3;
+}
+
+.company-name {
+    font-size: 0.875rem;
+    color: var(--dark-text-muted);
+}
+
+/* Match Score Badge */
+.match-score-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-lg);
+    min-width: 70px;
+}
+
+.match-score-badge .score-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.match-score-badge .score-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+}
+
+/* Meta Info */
+.job-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: 0.8rem;
+    color: var(--dark-text-muted);
+}
+
+.meta-item svg {
+    opacity: 0.7;
+}
+
+/* Tags */
+.job-card-tags {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+}
+
+.job-type-tag {
+    padding: var(--space-1) var(--space-3);
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: rgba(99, 102, 241, 0.15);
+    color: var(--primary-400);
+    border-radius: var(--radius-full);
+}
+
+.salary-tag {
+    padding: var(--space-1) var(--space-3);
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--success);
+    border-radius: var(--radius-full);
+}
+
+/* Description */
+.job-description {
+    font-size: 0.875rem;
+    color: var(--dark-text-muted);
+    line-height: 1.6;
+}
+
+/* Skills */
+.job-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.skill-tag {
+    padding: var(--space-1) var(--space-2);
+    font-size: 0.75rem;
+    background: var(--dark-bg);
+    color: var(--dark-text-muted);
+    border: 1px solid var(--dark-border);
+    border-radius: var(--radius-md);
+}
+
+.skill-tag.matched {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--success);
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.skill-tag.more {
+    background: transparent;
+    border-style: dashed;
+}
+
+/* Match Explanation */
+.match-explanation {
+    display: flex;
+    gap: var(--space-2);
+    padding: var(--space-3);
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--primary-500);
+}
+
+.match-explanation svg {
+    flex-shrink: 0;
+    color: var(--primary-400);
+    margin-top: 2px;
+}
+
+.match-explanation p {
+    font-size: 0.8rem;
+    color: var(--dark-text-muted);
+    line-height: 1.5;
+}
+
+/* Actions */
+.job-card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--dark-border);
+}
+
+.applied-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--success);
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: var(--radius-lg);
+}
+
+/* Save Button */
+.save-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: var(--radius-lg);
+    background: var(--dark-bg);
+    color: var(--dark-text-muted);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.save-button:hover {
+    background: rgba(99, 102, 241, 0.15);
+    color: var(--primary-400);
+    transform: scale(1.1);
+}
+
+.save-button.saved {
+    background: rgba(245, 158, 11, 0.15);
+    color: #f59e0b;
+}
+
+.save-button.saved:hover {
+    background: rgba(245, 158, 11, 0.25);
+}
+
+@media (max-width: 640px) {
+    .job-card-header {
+        flex-direction: column;
+    }
+
+    .match-score-badge {
+        flex-direction: row;
+        width: fit-content;
+        gap: var(--space-2);
+    }
+
+    .match-score-badge .score-value {
+        font-size: 1rem;
+    }
+}

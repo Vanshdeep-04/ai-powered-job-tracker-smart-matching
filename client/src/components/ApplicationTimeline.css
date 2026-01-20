@@ -1,0 +1,74 @@
+.application-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    position: relative;
+}
+
+.timeline-marker {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    flex-shrink: 0;
+    z-index: 1;
+}
+
+.timeline-item.primary .timeline-marker {
+    background: rgba(99, 102, 241, 0.15);
+    color: var(--primary-400);
+}
+
+.timeline-item.warning .timeline-marker {
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--warning);
+}
+
+.timeline-item.success .timeline-marker {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--success);
+}
+
+.timeline-item.error .timeline-marker {
+    background: rgba(239, 68, 68, 0.15);
+    color: var(--error);
+}
+
+.timeline-item.current .timeline-marker {
+    border: 2px solid currentColor;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 15px;
+    top: 32px;
+    width: 2px;
+    height: calc(100% + 4px);
+    background: var(--dark-border);
+}
+
+.timeline-content {
+    flex: 1;
+    padding-bottom: var(--space-4);
+}
+
+.timeline-label {
+    display: block;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--dark-text);
+    margin-bottom: 2px;
+}
+
+.timeline-date {
+    font-size: 0.75rem;
+    color: var(--dark-text-muted);
+}

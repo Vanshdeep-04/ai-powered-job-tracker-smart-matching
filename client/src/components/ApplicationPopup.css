@@ -1,0 +1,207 @@
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100;
+    padding: var(--space-4);
+    animation: fadeIn 0.2s ease;
+}
+
+.application-popup {
+    background: var(--dark-card);
+    border: 1px solid var(--dark-border);
+    border-radius: var(--radius-2xl);
+    width: 100%;
+    max-width: 420px;
+    overflow: hidden;
+    animation: popIn 0.3s ease;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.popup-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-6);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(6, 182, 212, 0.1));
+    border-bottom: 1px solid var(--dark-border);
+}
+
+.popup-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-600);
+    border-radius: var(--radius-full);
+    color: white;
+}
+
+.popup-header h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.popup-content {
+    padding: var(--space-6);
+}
+
+.popup-question {
+    font-size: 0.95rem;
+    color: var(--dark-text-muted);
+    margin-bottom: var(--space-5);
+    line-height: 1.5;
+}
+
+.popup-question strong {
+    color: var(--dark-text);
+}
+
+.popup-job-preview {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    background: var(--dark-bg);
+    border: 1px solid var(--dark-border);
+    border-radius: var(--radius-lg);
+}
+
+.job-preview-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-600), var(--accent-purple));
+    font-weight: 600;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.job-preview-icon img {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-md);
+    object-fit: cover;
+}
+
+.job-preview-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.job-preview-title {
+    font-weight: 500;
+    color: var(--dark-text);
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.job-preview-company {
+    font-size: 0.8rem;
+    color: var(--dark-text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.job-preview-score {
+    padding: var(--space-1) var(--space-2);
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+}
+
+.job-preview-score.high {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--success);
+}
+
+.job-preview-score.medium {
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--warning);
+}
+
+.job-preview-score.low {
+    background: rgba(107, 114, 128, 0.15);
+    color: var(--gray-400);
+}
+
+.popup-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-5);
+    background: var(--dark-bg);
+    border-top: 1px solid var(--dark-border);
+}
+
+.popup-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: var(--radius-lg);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.popup-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.popup-btn.primary {
+    background: linear-gradient(135deg, var(--success), var(--success-dark));
+    color: white;
+}
+
+.popup-btn.primary:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.popup-btn.secondary {
+    background: var(--dark-card);
+    color: var(--dark-text);
+    border: 1px solid var(--dark-border);
+}
+
+.popup-btn.secondary:hover:not(:disabled) {
+    background: var(--gray-700);
+}
+
+.popup-btn.ghost {
+    background: transparent;
+    color: var(--dark-text-muted);
+}
+
+.popup-btn.ghost:hover:not(:disabled) {
+    background: var(--dark-card);
+    color: var(--dark-text);
+}
