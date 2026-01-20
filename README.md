@@ -6,7 +6,14 @@ An AI-powered job tracking system that fetches jobs from external APIs, tracks a
 
 ## 🚀 Live Demo
 
-**Live URL:** [Coming Soon - Deploy to Vercel/Railway]
+Frontend (Vercel):  
+https://ai-powered-job-tracker-smart-matchi.vercel.app
+
+Backend (Render):  
+https://ai-powered-job-tracker-smart-matching.onrender.com
+
+> ⚠️ Note: On first load, the backend may take a few seconds to wake up due to Render’s free-tier cold start.
+
 
 ## ✨ Features
 
@@ -25,6 +32,7 @@ An AI-powered job tracking system that fetches jobs from external APIs, tracks a
 - ⭐ **Match Score**: High (>70%), Medium (40-70%), All
 
 ### 3. Resume Upload
+- Resume uploads are handled using multipart/form-data with in-memory parsing to support cloud deployments (no local file system dependency).
 - Upload PDF or TXT resumes
 - Drag & drop support
 - Replace/update anytime
@@ -243,6 +251,25 @@ VITE_API_URL=http://localhost:3001/api
 
 ## 🧠 AI Matching Logic
 
+## 🧩 Key Engineering Challenges Solved
+
+1. Multipart File Uploads in Production  
+   - Implemented Fastify multipart handling with correct plugin order  
+   - Ensured compatibility with Axios FormData in a cloud environment  
+
+2. Cross-Origin Session Management  
+   - Stateless backend with session tracking via custom headers  
+   - Consistent session handling across resume upload, job matching, and applications  
+
+3. AI Cost & Performance Optimization  
+   - Resume-based matching only triggers when resume changes  
+   - Parallel scoring with caching to reduce API calls  
+
+4. Deployment Constraints  
+   - Handled CORS preflight issues for custom headers  
+   - Designed system to work with free-tier cold starts and rate limits  
+
+
 ### How Scoring Works
 
 The AI matching system uses Google Gemini 1.5 Flash to analyze job-resume compatibility:
@@ -431,7 +458,7 @@ The application is fully responsive:
 
 - No API keys in client code
 - Session tokens in HTTP headers
-- CORS restricted to known origins
+- CORS configured for cross-origin frontend-backend communication (production demo setup)
 - Input validation on all endpoints
 - File type validation for uploads
 
