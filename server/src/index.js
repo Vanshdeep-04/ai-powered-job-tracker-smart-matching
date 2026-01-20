@@ -18,11 +18,27 @@ const fastify = Fastify({
 
 // Register plugins
 await fastify.register(cors, {
-    origin: process.env.NODE_ENV === 'production'
-        ? process.env.FRONTEND_URL
-        : ['http://localhost:5173', 'http://localhost:3000'],
-    credentials: true
+  origin: (origin, cb) => {
+    // Allow server-to-server calls, health checks, Postman
+    if (!origin) {
+      cb(null, true);
+      return;
+    }
+
+    const allowedOrigins =
+      process.env.NODE_ENV === 'production'
+        ? [process.env.FRONTEND_URL]
+        : ['http://localhost:5173', 'http://localhost:3000'];
+
+    if (allowedOrigins.includes(origin)) {
+      cb(null, true);
+    } else {
+      cb(new Error('Not allowed by CORS'), false);
+    }
+  },
+  credentials: true
 });
+
 
 await fastify.register(multipart, {
     limits: {
